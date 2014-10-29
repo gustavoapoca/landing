@@ -40,70 +40,83 @@
 // });
 
 
-// Calculator 1.1
+// // Calculator 1.1
+
+// var calcInput = document.getElementById("calc_input");
+// var calcOutput = document.getElementById("result");
+// var equalsBtn = document.getElementById("equals_btn");
+
+// // for testing the operation type
+// var isSum = /[+]/;
+// var isMinus = /[-]/;
+
+// var operation = calcInput.value;
+
+// var sumResult;
+// var minusResult;
+
+// console.log("o usuário digitou " + operation);
+
+// // the engine
+// var calculator = {
+// 	"sum": function sumFunc(userInput) {
+// 		var operationTerms = userInput.split("+");
+// 		function toNum(element, index, array) {
+// 			array[index] = parseFloat(array[index]);
+// 		}
+// 		operationTerms.forEach(toNum);
+// 		var result = operationTerms.reduce(function(a, b) {
+// 			return a + b;
+// 		});
+// 		return result;
+// 	},
+// 	"minus": function minusFunc(userInput) {
+// 		var operationTerms = userInput.split("-");
+// 		function toNum(element, index, array) {
+// 			array[index] = parseFloat(array[index]);
+// 		}
+// 		operationTerms.forEach(toNum);
+// 		var result = operationTerms.reduce(function(a, b) {
+// 			return a - b;
+// 		});
+// 		return result;
+// 	}
+// }
+
+// equalsBtn.addEventListener("click", function() {
+// 	operation = calcInput.value;
+// 	if (isSum.test(operation)) {
+// 		console.log("é uma operação de soma");
+// 		console.log("os termos a serem somados: " + operation.split("+"));
+// 		sumResult = calculator.sum(operation);
+// 		document.getElementById("result").innerHTML = sumResult; 
+// 	} else if (isMinus.test(operation)) {
+// 		console.log("é uma operação de subtração");
+// 		console.log("os termos a serem subtraídos: " + operation.split("-"));
+// 		minusResult = calculator.minus(operation);
+// 		document.getElementById("result").innerHTML = minusResult;
+// 	}
+// });
+
+// document.getElementById("limpar_btn").addEventListener("click", function() {
+// 	calcInput.value = null;
+// 	calcOutput.innerHTML = null;
+// });
+
+
+// Calculator 1.2
 
 var calcInput = document.getElementById("calc_input");
 var calcOutput = document.getElementById("result");
 var equalsBtn = document.getElementById("equals_btn");
-
-// for testing the operation type
-var isSum = /[+]/;
-var isMinus = /[-]/;
-
-var operation = calcInput.value;
-
-var sumResult;
-var minusResult;
-
-console.log("o usuário digitou " + operation);
-
-// the engine
-var calculator = {
-	"sum": function sumFunc(userInput) {
-		var operationTerms = userInput.split("+");
-		function toNum(element, index, array) {
-			array[index] = parseFloat(array[index]);
-		}
-		operationTerms.forEach(toNum);
-		var result = operationTerms.reduce(function(a, b) {
-			return a + b;
-		});
-		return result;
-	},
-	"minus": function minusFunc(userInput) {
-		var operationTerms = userInput.split("-");
-		function toNum(element, index, array) {
-			array[index] = parseFloat(array[index]);
-		}
-		operationTerms.forEach(toNum);
-		var result = operationTerms.reduce(function(a, b) {
-			return a - b;
-		});
-		return result;
-	}
-}
+var result;
 
 equalsBtn.addEventListener("click", function() {
-	operation = calcInput.value;
-	if (isSum.test(operation)) {
-		console.log("é uma operação de soma");
-		console.log("os termos a serem somados: " + operation.split("+"));
-		sumResult = calculator.sum(operation);
-		document.getElementById("result").innerHTML = sumResult; 
-	} else if (isMinus.test(operation)) {
-		console.log("é uma operação de subtração");
-		console.log("os termos a serem subtraídos: " + operation.split("-"));
-		minusResult = calculator.minus(operation);
-		document.getElementById("result").innerHTML = minusResult;
-	}
+	result = eval(calcInput.value);
+	calcOutput.innerHTML = result;
 });
 
 document.getElementById("limpar_btn").addEventListener("click", function() {
 	calcInput.value = null;
 	calcOutput.innerHTML = null;
 });
-
-
-
-
-
